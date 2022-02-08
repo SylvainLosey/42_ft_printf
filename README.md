@@ -5,3 +5,7 @@ _In this case use make CFLAGS=-g to build_
 
 For M1 debugging, use CodeLLDB extension. 
 _In this case launch debugger with launch.json and type: "lldb"_
+
+# TODO
+
+[ ] Check that folder structure with /src/libft is ok
