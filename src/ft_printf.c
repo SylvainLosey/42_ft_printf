@@ -6,11 +6,11 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:37:01 by sylvain           #+#    #+#             */
-/*   Updated: 2022/02/07 20:20:24 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/02/08 19:20:14 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int ft_printf(const char *fmt, ...) {
     va_list ap;

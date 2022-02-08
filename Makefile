@@ -1,49 +1,31 @@
-C = clang
+# Adapted from https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
 
-NAME = libftprintf.a
+NAME ?= libftprintf.a
+SRC_DIRS ?= ./src
 
-FLAGS = -Wall -Wextra -Werror -O2
+SRCS := $(shell find $(SRC_DIRS) -name '*.c')
+OBJS := $(addsuffix .o,$(basename $(SRCS)))
+DEPS := $(OBJS:.o=.d)
 
-LIBFT = libft
+INC_DIRS := $(shell find $(SRC_DIRS) -type d)
+INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
-DIR_S = sources
-
-DIR_O = temporary
-
-HEADER = include
-
-SOURCES = ft_printf.c 
-
-SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
-
-OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
+CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@make -C $(LIBFT)
-	@cp libft/libft.a ./$(NAME)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
-
-$(DIR_O)/%.o: $(DIR_S)/%.c
-	@mkdir -p temporary
-	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
-
-norme:
-	norminette ./libft/
-	@echo
-	norminette ./$(HEADER)/
-	@echo
-	norminette ./$(DIR_S)/
-
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
+	
 clean:
-	@rm -f $(OBJS)
-	@rm -rf $(DIR_O)
-	@make clean -C $(LIBFT)
+	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
-	@rm -f $(NAME)
-	@make fclean -C $(LIBFT)
+	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: clean
+
+-include $(DEPS)

@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:37:04 by sylvain           #+#    #+#             */
-/*   Updated: 2022/02/07 20:04:05 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/02/08 18:28:32 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** -------------------------- External Headers ---------------------------------
 */
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <stdarg.h>
 # include <errno.h>
 # include <stdio.h>
