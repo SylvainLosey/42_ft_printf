@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:37:01 by sylvain           #+#    #+#             */
-/*   Updated: 2022/03/18 11:48:54 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/03/19 14:12:42 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,53 @@ int	handle_pointer(va_list* ap)
 	return (count_hexadecimal((uintptr_t) ptr));
 }
 
+int	ft_putnbr(int number, int* counter)
+{
+	*counter = *counter + 1;
+	if (number == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", 1);
+		return (11);
+	}
+	else if (number < 0)
+	{
+		ft_putchar_fd('-', 1);
+		ft_putnbr(-number, counter);
+	}
+	else if (number >= 10)
+	{
+		ft_putnbr(number / 10, counter);
+		ft_putchar_fd(number % 10 + '0', 1);
+	}
+	else
+		ft_putchar_fd(number + '0', 1);
+	return (*counter);
+}
+
+int	ft_putnbr_unsigned(unsigned int number, int* counter)
+{
+	*counter = *counter + 1;
+	if (number >= 10)
+	{
+		ft_putnbr_unsigned(number / 10, counter);
+		ft_putchar_fd(number % 10 + '0', 1);
+	}
+	else
+		ft_putchar_fd(number + '0', 1);
+	return (*counter);
+}
+
+int	handle_decimal(va_list* ap, int not_signed)
+{
+	int	counter;
+
+	counter = 0;
+	if (not_signed == 0)
+		return (ft_putnbr(va_arg(*ap, int), &counter));
+	else 
+		return (ft_putnbr_unsigned(va_arg(*ap, unsigned int), &counter));
+}
+
 int	print_flag(char flag, va_list* ap)
 {
 	if (flag == 'c')
@@ -69,6 +116,10 @@ int	print_flag(char flag, va_list* ap)
 		return (handle_string(ap));
 	else if (flag == 'p')
 		return (handle_pointer(ap));
+	else if (flag == 'd' || flag == 'i')
+		return (handle_decimal(ap, 0));
+	else if (flag == 'u')
+		return (handle_decimal(ap, 1));
 	else
 		return (0);
 }
