@@ -15,3 +15,4 @@ _In this case launch debugger with launch.json and type: "lldb"_
 # TODO
 
 - [ ] Check that folder structure with /src/libft is ok
+- 10.SIGSEGV ?

@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:37:01 by sylvain           #+#    #+#             */
-/*   Updated: 2022/03/19 16:59:09 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/03/19 18:16:41 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,15 +112,18 @@ int	ft_printf(const char *fmt, ...)
 	written_chars = 0;
 	while (*fmt)
 	{
-		if (*fmt != '%')
-		{
-			ft_putchar_fd(*fmt, 1);
-			written_chars++;
-		}
-		else
+		if (*fmt == '%' && *(fmt + 1) != '%')
 		{
 			fmt++;
 			written_chars += print_flag(*fmt, &ap);
+		}
+		else
+		{
+			if (*fmt == '%' && *(fmt + 1) == '%')
+				ft_putchar_fd(*fmt++, 1);
+			else
+				ft_putchar_fd(*fmt, 1);
+			written_chars++;		
 		}
 		fmt++;
 	}
