@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 20:16:51 by sylvain           #+#    #+#             */
-/*   Updated: 2022/03/19 14:03:25 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/03/19 16:38:57 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,17 @@ int main() {
     printf("\n\n");
     ft_printf("%u - %u\n", INT_MIN, ft_printf("%u", INT_MIN));
     printf("%u - %u\n", INT_MIN, printf("%u", INT_MIN));
+    printf("\n\n");
+
+    printf("TEST HEXA\n");
+    printf("-----------\n");
+    ft_printf("%x - %x\n", -1, ft_printf("%x", -1));
+    printf("%x - %x\n", -1, printf("%x", -1));
+    printf("\n\n");
+    ft_printf("%x - %x\n", INT_MAX, ft_printf("%x", INT_MAX));
+    printf("%x - %x\n", INT_MAX, printf("%x", INT_MAX));
+    printf("\n\n");
+    ft_printf("%x - %x\n", INT_MIN, ft_printf("%x", INT_MIN));
+    printf("%x - %x\n", INT_MIN, printf("%x", INT_MIN));
     printf("\n\n");
 }
