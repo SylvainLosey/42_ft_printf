@@ -6,11 +6,12 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:37:01 by sylvain           #+#    #+#             */
-/*   Updated: 2022/04/01 12:38:42 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:19:16 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_printf(const char *fmt, ...)
 {

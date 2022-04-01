@@ -6,11 +6,12 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 12:30:11 by sylvain           #+#    #+#             */
-/*   Updated: 2022/04/01 12:41:17 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:19:19 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	print_char(va_list *ap)
 {
